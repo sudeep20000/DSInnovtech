@@ -1,0 +1,16 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-top: 2px solid rgb(47, 47, 48);
+  margin: 50px 0 0 0;
+  padding: 10px 0;
+}
+
+.footer_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}

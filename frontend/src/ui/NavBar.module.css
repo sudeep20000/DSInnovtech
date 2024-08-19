@@ -1,0 +1,118 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(13, 13, 14, 0.9);
+  backdrop-filter: blur(40px);
+  border-bottom: 2px solid rgb(47, 47, 48);
+  z-index: var(--z-fixed);
+}
+
+.nav {
+  width: 93vw;
+  margin: auto;
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  color: white;
+  font-weight: var(--font-semi-bold);
+  transition: color 0.3s;
+}
+
+.nav__logo span {
+  font-size: 27px;
+  color: #cadcfc;
+}
+
+.nav__list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.list {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav__link {
+  color: #cadcfc;
+  font-weight: var(--font-semi-bold);
+  padding: 10px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.nav__link:hover {
+  color: #007bff;
+}
+
+.nav__div {
+  color: #cadcfc;
+  font-weight: var(--font-semi-bold);
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.nav__div:hover {
+  color: #007bff;
+  cursor: pointer;
+}
+
+.dropdown-arrow {
+  transition: transform 0.3s ease;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.dropdown-arrow.close {
+  transform: rotate(0deg);
+}
+
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.contact_link {
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  background-color: #0056b3;
+  border: 2px solid #fff;
+}
+
+.contact_link:hover {
+  color: #0056b3;
+  background-color: #ffffff;
+}
+
+:global(.active) {
+  color: #007bff;
+}

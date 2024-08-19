@@ -1,0 +1,19 @@
+.hero_sec {
+  width: 93vw;
+  margin: auto;
+}
+
+.heading {
+  font-size: 30px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 20px;
+}
+
+.list li {
+  list-style: disc;
+}

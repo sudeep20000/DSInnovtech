@@ -1,0 +1,146 @@
+.hero_sec {
+  width: 93vw;
+  margin: auto;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact_info_container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 50%;
+}
+
+.contact-list {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgb(93, 93, 224);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info p {
+  margin: 0;
+}
+
+.contact-form {
+  padding: 20px;
+  width: 45%;
+  border-radius: 15px;
+  /* background-color: rgb(11, 15, 37); */
+  background-color: rgba(33, 33, 34, 0.9);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  margin: auto;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+}
+
+.form-group textarea {
+  resize: none;
+  height: 100px;
+}
+
+button {
+  width: 100%;
+  margin: auto;
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.form-group label {
+  display: block;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-group input.error,
+.form-group textarea.error {
+  border-color: red;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

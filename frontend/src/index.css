@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+:root {
+  --header-height: 3.5rem;
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(220, 68%, 54%);
+  --first-color-lighten: hsl(220, 68%, 97%);
+  --title-color: hsl(220, 48%, 28%);
+  --text-color: hsl(220, 12%, 45%);
+  --body-color: hsl(0, 0%, 1%);
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Poppins", sans-serif;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: white;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.slick-slide > div {
+  margin: 0 10px;
+}
+
+.slick-dots li {
+  color: lightgrey;
+}
+
+.slick-dots .slick-active {
+  color: white;
+}
+
+/* .slick-arrow:before {
+  font-size: 25px;
+  color: yellow;
+} */
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  /* background-color: black; */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.carousel-indicators li {
+  color: rgb(131, 125, 125);
+}
+
+.carousel-indicators .active {
+  background-color: black;
+}

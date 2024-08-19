@@ -1,0 +1,20 @@
+.main_div {
+  width: 100%;
+}
+
+.img {
+  height: 520px;
+}
+
+.img {
+  display: block;
+  margin: 0 auto;
+  max-height: 100vh;
+}
+
+.carousel-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
