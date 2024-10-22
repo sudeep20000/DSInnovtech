@@ -1,21 +1,37 @@
 import BESAICarousel from "../ui/BESAICarousel";
-import styles from "./Beasi.module.css";
+import styles from "./BESAi.module.css";
 
 const Beasi = () => {
   return (
     <div className={styles.hero_sec}>
+      <div className={styles.details}>
+        <div className={styles.img_container}>
+          <p>
+            <span className={styles.coloredPart}>BES</span>Ai
+          </p>
+          <img src="/BESAI_1.jpg" alt="besai" />
+        </div>
+        <div className={styles.about_container}>
+          <p>
+            <span className={styles.coloredPart}>DS</span>innovtech introduces
+            BESAi - an AI-Powered software platform for accelerated design and
+            development of state-of-the-art and next generation of electric
+            battery packs for EVs and stationary storage. BESAi empowers
+            designers with the next generation of product development tools
+            based on Multiphysics and AI-machine learning/data science methods
+            for faster design of optimal pack configurations
+          </p>
+          {/* <p>
+            DSinnovtech collaborates with electric vehicle, renewable energy,
+            and cell/pack/stack manufacturing industries to accelerate product
+            development, addressing their continuously evolving market demand
+            for electrifications.
+          </p> */}
+        </div>
+      </div>
+
       <BESAICarousel />
-      <p className={styles.intro}>
-        DSinnovtech introduces BESAi - an AI-Powered software platform for
-        accelerated design and development of state-of-the-art and next
-        generation of electric battery packs for EVs and stationary storage.
-        BESAi empowers designers with the next generation of product development
-        tools based on multiphysics and AI-machine learning/data science methods
-        for faster design of optimal pack configurations. Utilizes digitization,
-        automation, and customization techniques to enhance efficiency and
-        productivity in the simulation workflow and accelerates the design and
-        development cycles.
-      </p>
+
       <ul className={styles.outer_container}>
         <li className={styles.container}>
           <h2 className={styles["card-title"]}>Novelty</h2>

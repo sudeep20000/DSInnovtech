@@ -5,6 +5,30 @@ import Logo from "../components/Logo";
 import DropdownMenu from "../components/DropdownMenu";
 import styles from "./NavBar.module.css";
 
+const menuItems = {
+  "about us": [
+    { to: "/about-us/context", label: "Context" },
+    { to: "/about-us/expertise", label: "Expertise" },
+  ],
+  service: [
+    { to: "/service/core-technology", label: "Core technology" },
+    { to: "/service/consulting", label: "Consulting" },
+  ],
+  technology: [
+    { to: "/technology/BESAi", label: "BESAi" },
+    { to: "/technology/DSAi", label: "DSAi" },
+    // { to: "/technology/Multiphysics-and-Advanced-computing", label: "MAAC" },
+  ],
+  "case studies": [
+    { to: "/project-a", label: "Project A" },
+    { to: "/project-b", label: "Project B" },
+  ],
+  resources: [
+    // { to: "/blog", label: "Blog" },
+    // { to: "/ebooks", label: "eBooks" },
+  ],
+};
+
 const PageNav = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
 
@@ -16,44 +40,26 @@ const PageNav = () => {
     setActiveDropdown(null);
   };
 
-  const menuItems = {
-    about: [],
-    service: [
-      { to: "/service/consulting", label: "Consulting" },
-      { to: "/development", label: "Development" },
-    ],
-    technology: [
-      { to: "/technology/BESAI", label: "BESAI" },
-      { to: "/technology/AI-ML", label: "AI/ML" },
-      { to: "/technology/Multiphysics-and-Advanced-computing", label: "MAAC" },
-    ],
-    "case studies": [
-      { to: "/project-a", label: "Project A" },
-      { to: "/project-b", label: "Project B" },
-    ],
-    resources: [
-      { to: "/blog", label: "Blog" },
-      { to: "/ebooks", label: "eBooks" },
-    ],
-  };
-
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
         <div className={styles.nav__logo_container}>
           <Link to="/" className={styles.nav__logo}>
             <Logo />
-            <span>DSinnovtech</span>
+            <div>
+              <span className={styles.coloredPart}>DS</span>
+              innovtech
+            </div>
           </Link>
         </div>
 
         <ul className={styles.nav__list}>
           {Object.keys(menuItems).map((key) => (
             <li
-              key={key}
               onMouseEnter={() => handleMouseEnter(key)}
               onMouseLeave={handleMouseLeave}
               className={styles.list}
+              key={key}
             >
               {menuItems[key].length === 0 ? (
                 <>

@@ -13,47 +13,48 @@ const listContents = [
     content: `AI/Machine Learning Application developments – DSAi`,
   },
   { to: "/technology/MAAC", content: `Multiphysics and Advanced Computing` },
-  {
-    to: "/technology/IoT-AI",
-    content: `IoT/AI Remote Patient Monitoring – RPMAi`,
-  },
-  { to: "/technology/IoT-Edge", content: `IoT/Edge devices` },
+  // {
+  //   to: "/technology/IoT-AI",
+  //   content: `IoT/AI Remote Patient Monitoring – RPMAi`,
+  // },
+  // { to: "/technology/IoT-Edge", content: `IoT/Edge devices` },
 ];
 
 const slideContent = [
-  `DSinnovtech empowers designers with the next generation of product
-          development tools based on AI-machine learning/generative design
-          methods.`,
-  `Utilizes digitization, automation, and customization
-          techniques to enhance efficiency and productivity in the simulation
-          workflow and accelerates the design and development cycles.`,
-  `DSinnovtech collaborates with electric vehicle, renewable energy, and
-          cell/pack/stack manufacturing industries to accelerate product
-          development, addressing their continuously evolving market demand.`,
+  `DSinnovtech empowers engineers and scientists with the next generation of product development tools based on AI-machine learning/generative design methods.`,
+
+  `Utilizes digitization, automation, and customization techniques to enhance efficiency and productivity in the development workflow and accelerates the design and development cycles.`,
+
+  `DSinnovtech’s core expertise includes battery technologies, multi-physics high-fidelity computations, AI-Machine Learning, Data sciences and Software developments.`,
 ];
 
 const Home = () => {
   return (
     <div className={styles.hero_sec}>
-      <p className={styles.title}>DSinnovtech</p>
-      <div className={styles.intro_container}>
-        <p>
-          Providing Solutions with AI-Based Software and Advanced Computing.
+      <section>
+        <p className={styles.title}>
+          <span className={styles.coloredPart}>DS</span>
+          innovtech
         </p>
-        <Carousel>
-          {slideContent.map((content, i) => (
-            <Carousel.Item key={i}>
-              <div className={styles.carousel_content}>
-                <p>{content}</p>
-              </div>
-            </Carousel.Item>
-          ))}
-        </Carousel>
-      </div>
-      <div className={styles.solutions}>
-        <p>Our Solutions</p>
-        <div className={styles.solution_sec}>
-          <img src="./sec2.png" alt="solution" loading="lazy" />
+        <div className={styles.intro_container}>
+          <p>
+            Providing Solutions with AI-Based Software and Advanced Computing.
+          </p>
+          <Carousel>
+            {slideContent.map((content, i) => (
+              <Carousel.Item key={i}>
+                <div className={styles.carousel_content}>
+                  <p>{content}</p>
+                </div>
+              </Carousel.Item>
+            ))}
+          </Carousel>
+        </div>
+      </section>
+
+      <section className={styles.solutions}>
+        <div className={styles.solution_sec_list}>
+          <p>Our Solutions</p>
           <ul className={styles.points}>
             {listContents.map((obj, i) => (
               <li key={i}>
@@ -64,7 +65,15 @@ const Home = () => {
             ))}
           </ul>
         </div>
-      </div>
+
+        <img
+          src="./sec2.png"
+          alt="solution"
+          loading="lazy"
+          className={styles.solution_sec_image}
+        />
+      </section>
+
       <CarouselSlide />
     </div>
   );

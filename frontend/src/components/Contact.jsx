@@ -37,7 +37,7 @@ const Contact = () => {
         <div className={styles.contact_info_container}>
           <h1>Contact Information</h1>
           <ul className={styles["contact-list"]}>
-            <li className={styles.list}>
+            {/* <li className={styles.list}>
               <div className={styles.icon}>
                 <FaLocationDot size={25} />
               </div>
@@ -45,9 +45,9 @@ const Contact = () => {
                 <h3>Address</h3>
                 <p>1234 Street Name, City, State</p>
               </div>
-            </li>
+            </li> */}
 
-            <li className={styles.list}>
+            {/* <li className={styles.list}>
               <div className={styles.icon}>
                 <FaPhoneAlt size={25} />
               </div>
@@ -55,7 +55,8 @@ const Contact = () => {
                 <h3>Phone</h3>
                 <p>(123) 456-7890</p>
               </div>
-            </li>
+            </li> */}
+
             <li className={styles.list}>
               <div className={styles.icon}>
                 <IoMailOpenSharp size={25} />

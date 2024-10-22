@@ -3,21 +3,23 @@
 :root {
   --header-height: 3.5rem;
   /*========== Colors ==========*/
-  /*Color mode HSL(hue, saturation, lightness)*/
   --first-color: hsl(220, 68%, 54%);
   --first-color-lighten: hsl(220, 68%, 97%);
   --title-color: hsl(220, 48%, 28%);
   --text-color: hsl(220, 12%, 45%);
   --body-color: hsl(0, 0%, 1%);
+  --second-color: rgb(255, 217, 2);
+
   /*========== Font and typography ==========*/
-  /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: "Poppins", sans-serif;
   --normal-font-size: 0.938rem;
   --small-font-size: 0.813rem;
   --smaller-font-size: 0.75rem;
+
   /*========== Font weight ==========*/
   --font-medium: 500;
   --font-semi-bold: 600;
+
   /*========== z index ==========*/
   --z-tooltip: 10;
   --z-fixed: 100;
@@ -31,10 +33,23 @@
   }
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+html {
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+}
+
+section {
+  height: 100vh;
+  scroll-snap-align: start;
+  scroll-margin-top: 12vh;
 }
 
 body {

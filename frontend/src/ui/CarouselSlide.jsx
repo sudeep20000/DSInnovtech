@@ -4,45 +4,45 @@ import styles from "./CarouselSlider.module.css";
 
 const projects = [
   {
-    to: "/technology/BESAI",
+    to: "/technology/BESAi",
     image: "./BESAI_1.jpg",
-    title: "BESAI",
-    description: `  DSinnovtech introduces BESAi - an AI-Powered SaaS platform for
-    agile and accelerated design and development of state-of-the-art and next generation of electric battery packs for EVs. BESAi is aligned with the new developments in simulation & advance computations; materials science & design concepts in Liion battery technology.`,
+    title: "BESAi",
+    description: `DSinnovtech introduces BESAi - an AI-Powered SaaS platform for
+    agile and accelerated design and development of state-of-the-art and next generation of electric battery packs for EVs.`,
   },
   {
-    to: "/technology/AI-ML",
+    to: "/technology/DSAi",
     image: "./project_2.jpg",
-    title: "AI/Machine Learning",
+    title: "DSAi",
     description: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt
               quisquam qui, itaque minima aliquid eveniet asperiores voluptatum
               in. Minima ipsam, nesciunt fugit unde reprehenderit distinctio
               veritatis nihil porro! Illum, provident!`,
   },
-  {
-    to: "/technology/Multiphysics-and-Advanced-computing",
-    image: "./BESAI_2.jpg",
-    title: " Multiphysics and Advanced Computing",
-    description: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt
-              quisquam qui, itaque minima aliquid eveniet asperiores voluptatum
-              in. Minima ipsam, nesciunt fugit unde reprehenderit distinctio
-              veritatis nihil porro! Illum, provident!`,
-  },
+  // {
+  //   to: "/technology/Multiphysics-and-Advanced-computing",
+  //   image: "./BESAI_2.jpg",
+  //   title: " Multiphysics and Advanced Computing",
+  //   description: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt
+  //             quisquam qui, itaque minima aliquid eveniet asperiores voluptatum
+  //             in. Minima ipsam, nesciunt fugit unde reprehenderit distinctio
+  //             veritatis nihil porro! Illum, provident!`,
+  // },
 ];
 
 const CarouselSlide = () => {
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: 2,
     slidesToScroll: 1,
     pauseOnHover: true,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 10000,
     speed: 1000,
   };
   return (
-    <div>
+    <section>
       <Slider {...settings}>
         {projects.map((project, i) => (
           <Link to={project.to} className={styles.img_container} key={i}>
@@ -54,7 +54,7 @@ const CarouselSlide = () => {
           </Link>
         ))}
       </Slider>
-    </div>
+    </section>
   );
 };
 

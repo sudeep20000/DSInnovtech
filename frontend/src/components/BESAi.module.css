@@ -1,0 +1,73 @@
+.hero_sec {
+  width: 93vw;
+  margin: auto;
+}
+
+.details {
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  margin: 0 auto;
+  margin-bottom: 1.7em;
+}
+
+.img_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  font-weight: bold;
+}
+
+.img_container p {
+  align-self: center;
+  font-size: 4rem;
+}
+
+.img_container img {
+  width: 35%;
+  border-radius: 10px;
+}
+
+.about_container p {
+  font-size: 1.9rem;
+  text-align: justify;
+}
+
+.coloredPart {
+  color: var(--second-color);
+}
+
+.outer_container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.container {
+  max-width: 100%;
+  margin: 50px 0 auto auto;
+}
+
+.card-title {
+  font-size: 1.9rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--second-color);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 0;
+}
+
+.grid-item {
+  background-color: #353436;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 1.85rem;
+  height: 530px;
+}

@@ -20,14 +20,14 @@
 
 .sub {
   text-align: center;
-  color: yellow;
+  color: var(--second-color);
 }
 
 .des {
   text-align: center;
-  color: white;
+  color: var(--first-color-lighten);
 }
 
 .des:hover {
-  color: yellow;
+  color: var(--second-color);
 }
