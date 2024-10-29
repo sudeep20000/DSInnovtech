@@ -41,13 +41,13 @@
   margin: 0;
 }
 
-html {
-  /* scroll-snap-type: y proximity; */
-  /* scroll-behavior: smooth; */
-}
+/* html {
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+} */
 
 section {
-  height: 100vh;
+  height: calc(100vh - 12vh);
   /* scroll-snap-align: start;
   scroll-margin-top: 12vh; */
 }
