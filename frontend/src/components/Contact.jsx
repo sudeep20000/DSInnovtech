@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -11,9 +12,12 @@ const Contact = () => {
   const { register, handleSubmit, formState } = useForm();
   const { errors } = formState;
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const onSubmit = (data) => {
     const saveDetails = async () => {
       try {
+        setIsLoading(true);
         const { data: resData } = await axios.post(
           `${BASE_URL}/api/user/send-mail`,
           data
@@ -22,6 +26,8 @@ const Contact = () => {
       } catch (error) {
         console.log(error);
         toast.error(error.message || "An error occurred");
+      } finally {
+        setIsLoading(false);
       }
     };
     saveDetails();
@@ -129,7 +135,9 @@ const Contact = () => {
                 {...register("message", { required: "required field*" })}
               ></textarea>
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" disabled={isLoading}>
+              {isLoading ? "Loading..." : "Submit"}
+            </button>
           </form>
         </div>
       </div>

@@ -9,9 +9,10 @@
 }
 
 .nav {
-  width: 93vw;
-  margin: auto;
-  padding: 15px 0;
+  width: 93%;
+  height: 10vh;
+  max-width: 1280px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;

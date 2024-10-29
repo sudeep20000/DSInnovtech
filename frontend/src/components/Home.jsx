@@ -53,7 +53,7 @@ const Home = () => {
       </section>
 
       <section className={styles.solutions}>
-        <div className={styles.solution_sec_list}>
+        <div className={`${styles.solution_sec_list} ${styles.block}`}>
           <p>Our Solutions</p>
           <ul className={styles.points}>
             {listContents.map((obj, i) => (
@@ -70,7 +70,7 @@ const Home = () => {
           src="./sec2.png"
           alt="solution"
           loading="lazy"
-          className={styles.solution_sec_image}
+          className={`${styles.solution_sec_image} ${styles.block}`}
         />
       </section>
 

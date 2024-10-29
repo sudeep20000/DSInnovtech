@@ -17,7 +17,9 @@ const list_items = [
 const Consulting = () => {
   return (
     <div className={styles.hero_sec}>
-      <p className={styles.heading}>Consulting and R&D Services</p>
+      <p className={styles.heading}>
+        <span className={styles.coloredPart}>C</span>onsulting and R&D Services
+      </p>
       <ul className={styles.list}>
         {list_items.map((content, i) => (
           <li key={i}>{content}</li>

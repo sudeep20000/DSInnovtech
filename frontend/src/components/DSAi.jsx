@@ -26,7 +26,7 @@ const DASi = () => {
         </div>
       </section>
 
-      <section className={styles.solutions}>
+      <section className={`${styles.solutions} ${styles.block}`}>
         <div className={styles.solution_sec_list}>
           <p className={styles.section_title}>Our Solutions</p>
           <ul className={styles.points}>
@@ -46,7 +46,7 @@ const DASi = () => {
         />
       </section>
 
-      <section className={styles.prediction}>
+      <section className={`${styles.prediction} ${styles.block}`}>
         <div className={styles.left_section}>
           <p className={styles.section_title}>
             <span className={styles.coloredPart}>AI-ML </span>
@@ -98,7 +98,7 @@ const DASi = () => {
         </div>
       </section>
 
-      <section className={styles.development}>
+      <section className={`${styles.development} ${styles.block}`}>
         <div className={styles.development_left_section}>
           <p className={styles.section_title}>
             <span className={styles.coloredPart}>DS</span>
@@ -139,7 +139,7 @@ const DASi = () => {
         </div>
       </section>
 
-      <section className={styles.analysis}>
+      <section className={`${styles.analysis} ${styles.block}`}>
         <div className={styles.analysis_left_section}>
           <p className={styles.section_title}>
             <span className={styles.coloredPart}>DS</span>
@@ -204,7 +204,7 @@ const DASi = () => {
         </div>
       </section>
 
-      <section className={styles.design}>
+      <section className={`${styles.design} ${styles.block}`}>
         <div className={styles.design_left_section}>
           <p className={styles.section_title}>
             <span className={styles.coloredPart}>DS</span>

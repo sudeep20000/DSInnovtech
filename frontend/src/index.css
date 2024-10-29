@@ -25,13 +25,13 @@
   --z-fixed: 100;
 }
 
-@media screen and (min-width: 1024px) {
+/* @media screen and (min-width: 1024px) {
   :root {
     --normal-font-size: 1rem;
     --small-font-size: 0.875rem;
     --smaller-font-size: 0.813rem;
   }
-}
+} */
 
 *,
 *::before,
@@ -42,14 +42,14 @@
 }
 
 html {
-  scroll-snap-type: y proximity;
-  scroll-behavior: smooth;
+  /* scroll-snap-type: y proximity; */
+  /* scroll-behavior: smooth; */
 }
 
 section {
   height: 100vh;
-  scroll-snap-align: start;
-  scroll-margin-top: 12vh;
+  /* scroll-snap-align: start;
+  scroll-margin-top: 12vh; */
 }
 
 body {

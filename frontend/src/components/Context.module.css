@@ -1,8 +1,17 @@
 .hero_sec {
-  width: 93vw;
+  width: 93%;
   margin: 0 auto;
 }
 
+.heading {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
 .intro {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
+}
+
+.coloredPart {
+  color: var(--second-color);
 }

@@ -4,7 +4,7 @@ import styles from "./BESAi.module.css";
 const Beasi = () => {
   return (
     <div className={styles.hero_sec}>
-      <div className={styles.details}>
+      <section className={styles.details}>
         <div className={styles.img_container}>
           <p>
             <span className={styles.coloredPart}>BES</span>Ai
@@ -28,14 +28,14 @@ const Beasi = () => {
             for electrifications.
           </p> */}
         </div>
-      </div>
+      </section>
 
       <BESAICarousel />
 
       <ul className={styles.outer_container}>
         <li className={styles.container}>
           <h2 className={styles["card-title"]}>Novelty</h2>
-          <ul className={styles.grid}>
+          <ul className={`${styles.grid} ${styles.block}`}>
             <li className={styles["grid-item"]}>
               Software uses state-of-the-art Battery and AI/Data Science
               Technologies for design, analysis and development of electric
@@ -57,7 +57,7 @@ const Beasi = () => {
         </li>
         <li className={styles.container}>
           <h2 className={styles["card-title"]}>Solution</h2>
-          <ul className={styles.grid}>
+          <ul className={`${styles.grid} ${styles.block}`}>
             <li className={styles["grid-item"]}>
               Dedicated cloud-based battery modeling and design software
               platform.
@@ -80,7 +80,7 @@ const Beasi = () => {
           <h2 className={styles["card-title"]}>
             Improved Productivity and Efficiency
           </h2>
-          <ul className={styles.grid}>
+          <ul className={`${styles.grid} ${styles.block}`}>
             <li className={styles["grid-item"]}>
               Achieve 10-20X speed up in design workflow.
             </li>
