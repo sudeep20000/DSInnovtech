@@ -46,10 +46,7 @@ const PageNav = () => {
         <div className={styles.nav__logo_container}>
           <Link to="/" className={styles.nav__logo}>
             <Logo />
-            <div>
-              <span className={styles.coloredPart}>DS</span>
-              innovtech
-            </div>
+            <div>DSinnovtech</div>
           </Link>
         </div>
 
