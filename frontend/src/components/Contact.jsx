@@ -9,7 +9,7 @@ import BASE_URL from "../../service/helper";
 import styles from "./Contact.module.css";
 
 const Contact = () => {
-  const { register, formState, handleSubmit } = useForm();
+  const { register, formState, handleSubmit, reset } = useForm();
   const { errors } = formState;
 
   const [isLoading, setIsLoading] = useState(false);
@@ -27,6 +27,7 @@ const Contact = () => {
         console.log(error);
         toast.error(error.message || "An error occurred");
       } finally {
+        reset();
         setIsLoading(false);
       }
     };
@@ -88,7 +89,9 @@ const Contact = () => {
                 type="text"
                 id="name"
                 name="name"
-                className={errors?.name?.message ? styles.error : ""}
+                className={`${errors?.name?.message ? styles.error : ""} ${
+                  isLoading ? styles.notAllowed : ""
+                }`}
                 placeholder={errors?.name?.message || "Enter your name..."}
                 {...register("name", {
                   required: "This field is required",
@@ -106,7 +109,9 @@ const Contact = () => {
                 type="email"
                 id="email"
                 name="email"
-                className={errors?.email?.message ? styles.error : ""}
+                className={`${errors?.email?.message ? styles.error : ""} ${
+                  isLoading ? styles.notAllowed : ""
+                }`}
                 placeholder={errors?.email?.message || "Enter your email..."}
                 {...register("email", {
                   required: "This field is required",
@@ -124,7 +129,9 @@ const Contact = () => {
                 type="tel"
                 id="phone"
                 name="phone"
-                className={errors?.phone?.message ? styles.error : ""}
+                className={`${errors?.phone?.message ? styles.error : ""} ${
+                  isLoading ? styles.notAllowed : ""
+                }`}
                 placeholder={
                   errors?.phone?.message || "Enter your phone number..."
                 }
@@ -147,13 +154,19 @@ const Contact = () => {
               <textarea
                 id="message"
                 name="message"
-                className={errors?.message?.message ? styles.error : ""}
+                className={`${errors?.message?.message ? styles.error : ""} ${
+                  isLoading ? styles.notAllowed : ""
+                }`}
                 placeholder={errors?.message?.message || "Enter message..."}
                 {...register("message", { required: "This field is required" })}
               ></textarea>
             </div>
 
-            <button type="submit" disabled={isLoading}>
+            <button
+              type="submit"
+              disabled={isLoading}
+              className={isLoading ? styles.notAllowed : ""}
+            >
               {isLoading ? "Loading..." : "Submit"}
             </button>
           </form>

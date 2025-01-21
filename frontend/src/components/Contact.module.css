@@ -144,3 +144,7 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+.notAllowed {
+  cursor: not-allowed;
+}
