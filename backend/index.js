@@ -14,6 +14,13 @@ const errorHandlerMiddleware = require("./middleware/error-handler");
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (_, res) => {
+  res.status(200).json({
+    projectName: "ElectraCart",
+    msg: "server is running...",
+  });
+});
+
 app.use("/api/user", userRouter);
 
 app.use(notFoundMiddleware);
