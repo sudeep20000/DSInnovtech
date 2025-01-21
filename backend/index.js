@@ -16,7 +16,7 @@ app.use(express.json());
 
 app.get("/", (_, res) => {
   res.status(200).json({
-    projectName: "ElectraCart",
+    projectName: "DSinnovtech",
     msg: "server is running...",
   });
 });
