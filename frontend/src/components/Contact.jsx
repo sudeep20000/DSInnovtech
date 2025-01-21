@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import axios from "axios";
 import toast from "react-hot-toast";
-import { FaPhoneAlt } from "react-icons/fa";
+import axios from "axios";
+// import { FaPhoneAlt } from "react-icons/fa";
 import { IoMailOpenSharp } from "react-icons/io5";
-import { FaLocationDot } from "react-icons/fa6";
+// import { FaLocationDot } from "react-icons/fa6";
 import BASE_URL from "../../service/helper";
 import styles from "./Contact.module.css";
 
 const Contact = () => {
-  const { register, handleSubmit, formState } = useForm();
+  const { register, formState, handleSubmit } = useForm();
   const { errors } = formState;
 
   const [isLoading, setIsLoading] = useState(false);
@@ -77,6 +77,7 @@ const Contact = () => {
 
         <div className={styles["contact-form"]}>
           <h2>Contact Us</h2>
+
           <form
             onSubmit={handleSubmit(onSubmit, onError)}
             className={styles.form}
@@ -87,10 +88,10 @@ const Contact = () => {
                 type="text"
                 id="name"
                 name="name"
-                className={errors.name ? styles.error : ""}
+                className={errors?.name?.message ? styles.error : ""}
                 placeholder={errors?.name?.message || "Enter your name..."}
                 {...register("name", {
-                  required: "required field*",
+                  required: "This field is required",
                   minLength: {
                     value: 4,
                     message: "name length should be greater than 4",
@@ -105,9 +106,15 @@ const Contact = () => {
                 type="email"
                 id="email"
                 name="email"
-                className={errors.email ? styles.error : ""}
+                className={errors?.email?.message ? styles.error : ""}
                 placeholder={errors?.email?.message || "Enter your email..."}
-                {...register("email", { required: "required field*" })}
+                {...register("email", {
+                  required: "This field is required",
+                  pattern: {
+                    value: /\S+@\S+\.\S+/,
+                    message: "Please provide a valid email address",
+                  },
+                })}
               />
             </div>
 
@@ -117,11 +124,21 @@ const Contact = () => {
                 type="tel"
                 id="phone"
                 name="phone"
-                className={errors.phone ? styles.error : ""}
+                className={errors?.phone?.message ? styles.error : ""}
                 placeholder={
                   errors?.phone?.message || "Enter your phone number..."
                 }
-                {...register("phone", { required: "required field*" })}
+                {...register("phone", {
+                  required: "This field is required",
+                  minLength: {
+                    value: 10,
+                    message: "Password needs a minimum of 10 characters",
+                  },
+                  maxLength: {
+                    value: 10,
+                    message: "Password needs a maximum of 10 characters",
+                  },
+                })}
               />
             </div>
 
@@ -130,11 +147,12 @@ const Contact = () => {
               <textarea
                 id="message"
                 name="message"
-                className={errors.message ? styles.error : ""}
+                className={errors?.message?.message ? styles.error : ""}
                 placeholder={errors?.message?.message || "Enter message..."}
-                {...register("message", { required: "required field*" })}
+                {...register("message", { required: "This field is required" })}
               ></textarea>
             </div>
+
             <button type="submit" disabled={isLoading}>
               {isLoading ? "Loading..." : "Submit"}
             </button>

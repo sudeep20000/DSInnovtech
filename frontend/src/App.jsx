@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
-import { Toaster } from "react-hot-toast";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 const Main = lazy(() => import("./pages/Main"));
 
@@ -46,7 +46,7 @@ const App = () => {
           </Routes>
         </Suspense>
       </BrowserRouter>
-      {/* <Toaster
+      <Toaster
         position="top-center"
         gutter={12}
         containerStyle={{ margin: "8px" }}
@@ -61,7 +61,7 @@ const App = () => {
             color: "lightGrey",
           },
         }}
-      /> */}
+      />
     </>
   );
 };
