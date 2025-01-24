@@ -5,7 +5,7 @@ import axios from "axios";
 // import { FaPhoneAlt } from "react-icons/fa";
 import { IoMailOpenSharp } from "react-icons/io5";
 // import { FaLocationDot } from "react-icons/fa6";
-import BASE_URL from "../../service/helper";
+import BACKEND_URL from "../../service/helper";
 import styles from "./Contact.module.css";
 
 const Contact = () => {
@@ -18,14 +18,14 @@ const Contact = () => {
     const saveDetails = async () => {
       try {
         setIsLoading(true);
-        await axios.post(`${BASE_URL}/api/user/send-mail`, data);
+        await axios.post(`${BACKEND_URL}/api/user/send-mail`, data);
         toast.success("Thank you for reaching out to us.");
       } catch (error) {
         console.log(error);
         toast.error(error.message || "An error occurred");
       } finally {
-        reset();
         setIsLoading(false);
+        reset();
       }
     };
     saveDetails();
@@ -86,6 +86,7 @@ const Contact = () => {
                 type="text"
                 id="name"
                 name="name"
+                disabled={isLoading}
                 className={`${errors?.name?.message ? styles.error : ""} ${
                   isLoading ? styles.notAllowed : ""
                 }`}
@@ -106,6 +107,7 @@ const Contact = () => {
                 type="email"
                 id="email"
                 name="email"
+                disabled={isLoading}
                 className={`${errors?.email?.message ? styles.error : ""} ${
                   isLoading ? styles.notAllowed : ""
                 }`}
@@ -126,6 +128,7 @@ const Contact = () => {
                 type="tel"
                 id="phone"
                 name="phone"
+                disabled={isLoading}
                 className={`${errors?.phone?.message ? styles.error : ""} ${
                   isLoading ? styles.notAllowed : ""
                 }`}
@@ -151,6 +154,7 @@ const Contact = () => {
               <textarea
                 id="message"
                 name="message"
+                disabled={isLoading}
                 className={`${errors?.message?.message ? styles.error : ""} ${
                   isLoading ? styles.notAllowed : ""
                 }`}

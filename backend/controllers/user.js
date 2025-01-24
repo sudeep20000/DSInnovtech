@@ -34,8 +34,8 @@ const saveDetails = async (req, res) => {
   const companyMail = {
     from: email,
     to: process.env.EMAIL_USER,
-    subject: `New Message from ${name}`,
-    text: `You have received a new message from ${name} (${email}):\n\n"${message}"`,
+    subject: `New Message from ${email}`,
+    text: `You have received a new message from ${name} :\n\n"${message}"`,
   };
 
   try {
@@ -45,7 +45,7 @@ const saveDetails = async (req, res) => {
       User.create({ ...req.body }),
     ]);
 
-    res.status(StatusCodes.OK);
+    return res.status(StatusCodes.OK);
   } catch (error) {
     res
       .status(StatusCodes.INTERNAL_SERVER_ERROR)

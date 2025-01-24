@@ -1,4 +1,4 @@
-// const BASE_URL = "http://localhost:3000";
-const BASE_URL = "https://ds-innovtech.vercel.app";
+const BACKEND_URL = "http://localhost:3000";
+// const BACKEND_URL = "https://ds-innovtech.vercel.app";
 
-export default BASE_URL;
+export default BACKEND_URL;
