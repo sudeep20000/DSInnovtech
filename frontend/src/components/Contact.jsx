@@ -18,14 +18,16 @@ const Contact = () => {
     const saveDetails = async () => {
       try {
         setIsLoading(true);
-        await axios.post(`${BACKEND_URL}/api/user/send-mail`, data);
-        toast.success("Thank you for reaching out to us.");
-      } catch (error) {
-        console.log(error);
-        toast.error(error.message || "An error occurred");
+        const {
+          data: { msg },
+        } = await axios.post(`${BACKEND_URL}/api/user/send-mail`, data);
+        toast.success(msg);
+      } catch (err) {
+        console.log(err);
+        toast.error(err.message || "An error occurred");
       } finally {
-        setIsLoading(false);
         reset();
+        setIsLoading(false);
       }
     };
     saveDetails();
