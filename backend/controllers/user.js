@@ -23,9 +23,9 @@ const saveDetails = async (req, res) => {
   }
 
   const userMail = {
-    from: `"DSInnovtech" <${process.env.EMAIL_USER}>`,
+    from: `"DSinnovtech" <${process.env.EMAIL_USER}>`,
     to: email,
-    subject: `Message from DSInnovtech`,
+    subject: `Message from DSinnovtech`,
     text: `Thank you ${
       name.split(" ")[0]
     }, for reaching out to us. We have received your message: ${message}`,
@@ -45,7 +45,7 @@ const saveDetails = async (req, res) => {
       User.create({ ...req.body }),
     ]);
 
-    res.status(StatusCodes.OK).json({ msg: "Message sent successfully!" });
+    res.status(StatusCodes.OK);
   } catch (error) {
     res
       .status(StatusCodes.INTERNAL_SERVER_ERROR)

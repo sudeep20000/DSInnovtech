@@ -18,11 +18,8 @@ const Contact = () => {
     const saveDetails = async () => {
       try {
         setIsLoading(true);
-        const { data: resData } = await axios.post(
-          `${BASE_URL}/api/user/send-mail`,
-          data
-        );
-        toast.success(resData.msg);
+        await axios.post(`${BASE_URL}/api/user/send-mail`, data);
+        toast.success("Thank you for reaching out to us.");
       } catch (error) {
         console.log(error);
         toast.error(error.message || "An error occurred");
@@ -70,7 +67,7 @@ const Contact = () => {
               </div>
               <div className={styles.info}>
                 <h3>E-mail</h3>
-                <p>contact@company.com</p>
+                <p>info@dsinnovtech.com</p>
               </div>
             </li>
           </ul>
