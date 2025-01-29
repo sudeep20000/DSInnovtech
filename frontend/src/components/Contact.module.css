@@ -53,7 +53,6 @@
   padding: 20px;
   width: 45%;
   border-radius: 15px;
-  /* background-color: rgb(11, 15, 37); */
   background-color: rgba(33, 33, 34, 0.9);
   display: flex;
   flex-direction: column;
@@ -61,9 +60,9 @@
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
 .form-group {
@@ -72,59 +71,79 @@
   gap: 5px;
 }
 
+.form-group label {
+  display: block;
+  color: var(--second-color);
+}
+
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
+  padding: 0.5rem;
+  border: 1px solid #fff;
   border-radius: 5px;
+  font-size: 1rem;
+  background-color: rgb(20, 20, 20);
+  color: white;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
   margin: auto;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
+.form-group input.error,
+.form-group textarea.error,
+.form-group select.error {
+  border-color: red;
 }
+
+.form-group input.error::placeholder,
+.form-group textarea.error::placeholder,
+.form-group select.error::placeholder {
+  color: red;
+}
+
+.form-group input:-webkit-autofill,
+.form-group input:-webkit-autofill:hover,
+.form-group input:-webkit-autofill:focus,
+.form-group input:-webkit-autofill:active,
+.form-group select:-webkit-autofill,
+.form-group select:-webkit-autofill:hover,
+.form-group select:-webkit-autofill:focus,
+.form-group select:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px rgb(20, 20, 20) inset !important;
+  -webkit-text-fill-color: white !important;
+}
+
+/* .form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: 1px solid var(--second-color);
+} */
 
 .form-group textarea {
   resize: none;
   height: 100px;
 }
 
-button {
-  width: 100%;
-  margin: auto;
-  padding: 10px 20px;
-  border: none;
+.message {
+  grid-column: 1 / -1;
+}
+
+.submitBtn {
+  grid-column: 1/-1;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
   background-color: #007bff;
-  color: white;
+  color: #fff;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-button:hover {
+.submitBtn:hover {
   background-color: #0056b3;
   transform: translateY(-2px);
-}
-
-.form-group label {
-  display: block;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-.form-group input.error,
-.form-group textarea.error {
-  border-color: red;
 }
 
 .error-message {
@@ -132,20 +151,7 @@ button:hover {
   font-size: 0.875rem;
 }
 
-button {
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
 .notAllowed {
   cursor: not-allowed;
+  background-color: rgb(20, 20, 20);
 }

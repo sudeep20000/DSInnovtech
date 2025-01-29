@@ -2,11 +2,20 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { getNames } from "country-list";
+// import Select from "react-select";
 // import { FaPhoneAlt } from "react-icons/fa";
 import { IoMailOpenSharp } from "react-icons/io5";
 // import { FaLocationDot } from "react-icons/fa6";
 import BACKEND_URL from "../../service/helper";
 import styles from "./Contact.module.css";
+
+const countries = getNames();
+countries.sort((a, b) => a.localeCompare(b));
+
+// const options = countries.map((country) => {
+//   return { label: country, value: country };
+// });
 
 const Contact = () => {
   const { register, formState, handleSubmit, reset } = useForm();
@@ -14,23 +23,20 @@ const Contact = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const onSubmit = (data) => {
-    const saveDetails = async () => {
-      try {
-        setIsLoading(true);
-        const {
-          data: { msg },
-        } = await axios.post(`${BACKEND_URL}/api/user/send-mail`, data);
-        toast.success(msg);
-      } catch (err) {
-        console.log(err);
-        toast.error(err.message || "An error occurred");
-      } finally {
-        reset();
-        setIsLoading(false);
-      }
-    };
-    saveDetails();
+  const onSubmit = async (data) => {
+    try {
+      setIsLoading(true);
+      const {
+        data: { msg },
+      } = await axios.post(`${BACKEND_URL}/api/user/send-mail`, data);
+      toast.success(msg);
+    } catch (err) {
+      console.log(err);
+      toast.error(err.message || "An error occurred");
+    } finally {
+      reset();
+      setIsLoading(false);
+    }
   };
 
   const onError = (errors) => {
@@ -83,21 +89,100 @@ const Contact = () => {
             className={styles.form}
           >
             <div className={styles["form-group"]}>
-              <label htmlFor="name">Name</label>
+              <label htmlFor="firstName">First Name</label>
               <input
                 type="text"
-                id="name"
-                name="name"
+                id="firstName"
+                name="firstName"
                 disabled={isLoading}
-                className={`${errors?.name?.message ? styles.error : ""} ${
+                className={`${errors?.firstName?.message ? styles.error : ""} ${
                   isLoading ? styles.notAllowed : ""
                 }`}
-                placeholder={errors?.name?.message || "Enter your name..."}
-                {...register("name", {
+                placeholder={errors?.firstName?.message || ""}
+                {...register("firstName", {
                   required: "This field is required",
                   minLength: {
-                    value: 4,
-                    message: "name length should be greater than 4",
+                    value: 1,
+                    message: "firstname length should be greater than 1",
+                  },
+                  maxLength: {
+                    value: 20,
+                    message: "firstname length should be lesser than 20",
+                  },
+                })}
+              />
+            </div>
+
+            <div className={styles["form-group"]}>
+              <label htmlFor="lastName">Last Name</label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                disabled={isLoading}
+                className={`${errors?.lastName?.message ? styles.error : ""} ${
+                  isLoading ? styles.notAllowed : ""
+                }`}
+                placeholder={errors?.lastName?.message || ""}
+                {...register("lastName", {
+                  required: "This field is required",
+                  minLength: {
+                    value: 1,
+                    message: "lastname length should be greater than 1",
+                  },
+                  maxLength: {
+                    value: 30,
+                    message: "lastname length should be lesser than 30",
+                  },
+                })}
+              />
+            </div>
+
+            <div className={styles["form-group"]}>
+              <label htmlFor="organization">Organization</label>
+              <input
+                type="text"
+                id="organization"
+                name="organization"
+                disabled={isLoading}
+                className={`${
+                  errors?.organization?.message ? styles.error : ""
+                } ${isLoading ? styles.notAllowed : ""}`}
+                placeholder={errors?.organization?.message || ""}
+                {...register("organization", {
+                  required: "This field is required",
+                  minLength: {
+                    value: 1,
+                    message: "organization length should be greater than 1",
+                  },
+                  maxLength: {
+                    value: 30,
+                    message: "organization length should be lesser than 30",
+                  },
+                })}
+              />
+            </div>
+
+            <div className={styles["form-group"]}>
+              <label htmlFor="jobTitle">Job Title</label>
+              <input
+                type="text"
+                id="jobTitle"
+                name="jobTitle"
+                disabled={isLoading}
+                className={`${errors?.jobTitle?.message ? styles.error : ""} ${
+                  isLoading ? styles.notAllowed : ""
+                }`}
+                placeholder={errors?.jobTitle?.message || ""}
+                {...register("jobTitle", {
+                  required: "This field is required",
+                  minLength: {
+                    value: 1,
+                    message: "job title length should be greater than 1",
+                  },
+                  maxLength: {
+                    value: 20,
+                    message: "job title length should be lesser than 20",
                   },
                 })}
               />
@@ -113,7 +198,7 @@ const Contact = () => {
                 className={`${errors?.email?.message ? styles.error : ""} ${
                   isLoading ? styles.notAllowed : ""
                 }`}
-                placeholder={errors?.email?.message || "Enter your email..."}
+                placeholder={errors?.email?.message || ""}
                 {...register("email", {
                   required: "This field is required",
                   pattern: {
@@ -134,24 +219,44 @@ const Contact = () => {
                 className={`${errors?.phone?.message ? styles.error : ""} ${
                   isLoading ? styles.notAllowed : ""
                 }`}
-                placeholder={
-                  errors?.phone?.message || "Enter your phone number..."
-                }
+                placeholder={errors?.phone?.message || ""}
                 {...register("phone", {
                   required: "This field is required",
                   minLength: {
                     value: 10,
-                    message: "Password needs a minimum of 10 characters",
+                    message: "Phone number needs a minimum of 10 numbers",
                   },
                   maxLength: {
                     value: 10,
-                    message: "Password needs a maximum of 10 characters",
+                    message: "Phone number needs a maximum of 10 numbers",
                   },
                 })}
               />
             </div>
 
             <div className={styles["form-group"]}>
+              <label htmlFor="country">Country</label>
+              <select
+                name="country"
+                id="country"
+                disabled={isLoading}
+                className={`${styles.select} ${
+                  errors?.country?.message ? styles.error : ""
+                } ${isLoading ? styles.notAllowed : ""}`}
+                {...register("country", {
+                  required: "This field is required",
+                })}
+              >
+                <option value="">--select your country--</option>
+                {countries.map((country) => (
+                  <option key={country} value={country}>
+                    {country}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className={`${styles.message} ${styles["form-group"]}`}>
               <label htmlFor="message">Message</label>
               <textarea
                 id="message"
@@ -160,15 +265,17 @@ const Contact = () => {
                 className={`${errors?.message?.message ? styles.error : ""} ${
                   isLoading ? styles.notAllowed : ""
                 }`}
-                placeholder={errors?.message?.message || "Enter message..."}
+                placeholder={errors?.message?.message || ""}
                 {...register("message", { required: "This field is required" })}
-              ></textarea>
+              />
             </div>
 
             <button
               type="submit"
               disabled={isLoading}
-              className={isLoading ? styles.notAllowed : ""}
+              className={`${styles.submitBtn} ${
+                isLoading ? styles.notAllowed : ""
+              }`}
             >
               {isLoading ? "Loading..." : "Submit"}
             </button>

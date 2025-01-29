@@ -16,9 +16,27 @@ const transporter = nodemailer.createTransport({
 });
 
 const saveDetails = async (req, res) => {
-  const { name, email, phone, message } = req.body;
+  const {
+    firstName,
+    lastName,
+    organization,
+    jobTitle,
+    email,
+    phone,
+    country,
+    message,
+  } = req.body;
 
-  if (!name || !email || !phone || !message) {
+  if (
+    !firstName ||
+    !lastName ||
+    !organization ||
+    !jobTitle ||
+    !email ||
+    !phone ||
+    !country ||
+    !message
+  ) {
     throw new BadRequestError("Please provide all cradentials");
   }
 
@@ -27,7 +45,7 @@ const saveDetails = async (req, res) => {
     to: email,
     subject: `Message from DSinnovtech`,
     text: `Thank you ${
-      name.split(" ")[0]
+      firstName.split(" ")[0]
     }, for reaching out to us. We have received your message: ${message}`,
   };
 
@@ -35,7 +53,7 @@ const saveDetails = async (req, res) => {
     from: email,
     to: process.env.USER_EMAIL,
     subject: `New Message from ${email}`,
-    text: `You have received a new message from ${name} :\n\n"${message}"`,
+    text: `You have received a new message from ${firstName} :\n\n"${message}"`,
   };
 
   try {

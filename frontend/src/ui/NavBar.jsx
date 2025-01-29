@@ -87,7 +87,7 @@ const PageNav = () => {
 
         <div className={styles.contact}>
           <Link to="contact" className={styles.contact_link}>
-            Contact
+            Contact us
           </Link>
         </div>
       </nav>

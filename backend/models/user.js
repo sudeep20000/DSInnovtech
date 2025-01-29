@@ -1,11 +1,29 @@
 const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
-  name: {
+  firstName: {
     type: String,
-    require: [true, "Please provide name"],
+    require: [true, "Please provide firstname"],
+    minlength: 1,
+    maxlength: 20,
+  },
+  lastName: {
+    type: String,
+    require: [true, "Please provide lastname"],
     minlength: 3,
-    maxlength: 50,
+    maxlength: 20,
+  },
+  organization: {
+    type: String,
+    require: [true, "Please provide organization"],
+    minlength: 3,
+    maxlength: 20,
+  },
+  jobTitle: {
+    type: String,
+    require: [true, "Please provide job title"],
+    minlength: 3,
+    maxlength: 20,
   },
   email: {
     type: String,
@@ -18,6 +36,10 @@ const UserSchema = new mongoose.Schema({
   phone: {
     type: String,
     require: [true, "Please provide phone number"],
+  },
+  country: {
+    type: String,
+    require: [true, "Please provide country name"],
   },
   message: {
     type: String,
