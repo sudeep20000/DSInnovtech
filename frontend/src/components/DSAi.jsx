@@ -19,8 +19,8 @@ const DASi = () => {
             </p>
             <p className={styles.description}>
               Utilizes AI-algorithms including deep learning, neural networks
-              and foundation models unstructured database, vector search and
-              retrievals and digitization, automation and customization
+              and foundation models; unstructured database, vector search and
+              retrievals; and digitization, automation and customization
               techniques.
             </p>
           </div>
