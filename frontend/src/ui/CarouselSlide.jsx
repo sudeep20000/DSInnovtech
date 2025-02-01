@@ -14,10 +14,9 @@ const projects = [
     to: "/technology/DSAi",
     image: "./project_2.jpg",
     title: "DSAi",
-    description: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt
-              quisquam qui, itaque minima aliquid eveniet asperiores voluptatum
-              in. Minima ipsam, nesciunt fugit unde reprehenderit distinctio
-              veritatis nihil porro! Illum, provident!`,
+    description: `An AI-Powered predictive analysis and generative design software for solving and developing applications in a wide  range of challenging and complex problems to enhance efficiency and productivity in the workflow and accelerates the design and development cycles.
+.
+`,
   },
   // {
   //   to: "/technology/Multiphysics-and-Advanced-computing",
@@ -45,7 +44,7 @@ const CarouselSlide = () => {
     <section>
       <Slider {...settings}>
         {projects.map((project, i) => (
-          <Link to={project.to} className={styles.img_container} key={i}>
+          <Link to={project.to} className={styles.card} key={i}>
             <img src={project.image} alt={project.title} />
             <div className={styles.title_des}>
               <h3 className={styles.sub}>{project.title}</h3>

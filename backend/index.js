@@ -1,15 +1,17 @@
 const express = require("express");
-require("express-async-errors");
 const cors = require("cors");
+require("express-async-errors");
 
-const app = express();
-
-const connectDB = require("./db/connect");
-
-const userRouter = require("./routes/user");
+const publicRouters = require("./routes/public");
+const authRouters = require("./routes/auth");
 
 const notFoundMiddleware = require("./middleware/not-found");
 const errorHandlerMiddleware = require("./middleware/error-handler");
+const authMiddleware = require("./middleware/requireAuth");
+
+const connectDB = require("./db/connect");
+
+const app = express();
 
 app.use(cors());
 app.use(express.json());
@@ -21,7 +23,8 @@ app.get("/", (_, res) => {
   });
 });
 
-app.use("/api/user", userRouter);
+app.use("/api/public", authMiddleware, publicRouters);
+app.use("/api/auth", authRouters);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
@@ -30,7 +33,9 @@ const port = process.env.PORT || 5000;
 const start = async () => {
   try {
     await connectDB(process.env.MONGO_URI);
-    app.listen(port, () => console.log(`server is listening on port ${port}`));
+    app.listen(port, () =>
+      console.log(`database is connected.\nbackend is running on port ${port}.`)
+    );
   } catch (error) {
     console.log(error);
   }

@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import toast from "react-hot-toast";
 import Logo from "../components/Logo";
 import DropdownMenu from "../components/DropdownMenu";
 import styles from "./NavBar.module.css";
@@ -31,6 +32,15 @@ const menuItems = {
 
 const PageNav = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [isTokenPresent, setIsTokenPresent] = useState(false);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const details = JSON.parse(localStorage.getItem("details"));
+    if (!details) return;
+    if (details.token) setIsTokenPresent(true);
+  }, []);
 
   const handleMouseEnter = (menu) => {
     setActiveDropdown(menu);
@@ -38,6 +48,21 @@ const PageNav = () => {
 
   const handleMouseLeave = () => {
     setActiveDropdown(null);
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    toast("This feature is under development", {
+      duration: 4000,
+    });
+    // navigate("/auth");
+  };
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+
+    localStorage.removeItem("details");
+    navigate("/auth");
   };
 
   return (
@@ -84,6 +109,25 @@ const PageNav = () => {
             </li>
           ))}
         </ul>
+
+        <div className={styles.btn_container}>
+          {!isTokenPresent && (
+            <button
+              onClick={(e) => handleLogin(e)}
+              className={styles.login_btn}
+            >
+              Log in
+            </button>
+          )}
+          {isTokenPresent && (
+            <button
+              onClick={(e) => handleLogout(e)}
+              className={styles.logout_btn}
+            >
+              Log out
+            </button>
+          )}
+        </div>
 
         <div className={styles.contact}>
           <Link to="contact" className={styles.contact_link}>

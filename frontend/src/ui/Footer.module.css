@@ -4,8 +4,7 @@
   align-items: center;
   color: white;
   border-top: 1px solid rgb(47, 47, 48);
-  /* margin: 50px 0 0 0; */
-  padding: 10px 0;
+  padding: 0.6em 0;
 }
 
 .footer_content {

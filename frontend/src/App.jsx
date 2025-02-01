@@ -2,8 +2,6 @@ import { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
-const Main = lazy(() => import("./pages/Main"));
-
 import Home from "./components/Home";
 import Context from "./components/Context";
 import Expertise from "./components/Expertise";
@@ -12,12 +10,13 @@ import CoreTechnology from "./components/CoreTechnology";
 import Consulting from "./components/Consulting";
 import BESAi from "./components/BESAi";
 import DSAi from "./components/DSAi";
-import CaseStudies from "./components/CaseStudies";
-import Resources from "./components/Resources";
 import Contact from "./components/Contact";
 import PageNotFound from "./ui/PageNotFound";
 import SpinnerFullPage from "./ui/SpinnerFullPage";
 import ScrollToTop from "./ui/ScrollToTop";
+
+const AppLayout = lazy(() => import("./pages/AppLayout"));
+const LoginAndRegister = lazy(() => import("./pages/LoginAndRegister"));
 
 const App = () => {
   return (
@@ -26,7 +25,7 @@ const App = () => {
         <Suspense fallback={<SpinnerFullPage />}>
           <ScrollToTop />
           <Routes>
-            <Route element={<Main />}>
+            <Route element={<AppLayout />}>
               <Route index element={<Home />} />
               <Route path="about-us/context" element={<Context />} />
               <Route path="about-us/expertise" element={<Expertise />} />
@@ -38,11 +37,10 @@ const App = () => {
               <Route path="service/consulting" element={<Consulting />} />
               <Route path="technology/BESAi" element={<BESAi />} />
               <Route path="technology/DSAi" element={<DSAi />} />
-              <Route path="case-studies" element={<CaseStudies />} />
-              <Route path="resources" element={<Resources />} />
               <Route path="contact" element={<Contact />} />
               <Route path="*" element={<PageNotFound />} />
             </Route>
+            <Route path="auth" element={<LoginAndRegister />} />
           </Routes>
         </Suspense>
       </BrowserRouter>

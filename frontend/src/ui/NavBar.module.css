@@ -9,9 +9,9 @@
 }
 
 .nav {
-  width: 93%;
-  height: 10vh;
+  width: 92vw;
   max-width: 1280px;
+  height: 5rem;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -22,7 +22,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 27px;
+  font-size: 1.75rem;
   color: #cadcfc;
 }
 
@@ -56,7 +56,7 @@
 .nav__link {
   color: var(--first-color-lighten);
   font-weight: var(--font-semi-bold);
-  padding: 10px 15px;
+  padding: 0.6em 1em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,7 +70,7 @@
 .nav__div {
   color: var(--first-color-lighten);
   font-weight: var(--font-semi-bold);
-  padding: 10px 15px;
+  padding: 0.6em 1em;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -94,25 +94,48 @@
   transform: rotate(0deg);
 }
 
+.login_btn {
+  background-color: black;
+  color: var(--second-color);
+  font-size: 1rem;
+  padding: 0.5em 2em;
+  border-radius: 6px;
+  border: 1px solid var(--second-color);
+}
+
+.login_btn:hover {
+  background-color: rgb(34, 33, 33);
+  color: rgb(211, 186, 46);
+}
+
+.logout_btn {
+  background-color: var(--second-color);
+  color: black;
+  font-size: 1rem;
+  padding: 0.5em 2em;
+  border-radius: 6px;
+  border: none;
+}
+
 .contact {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 25px;
+  gap: 1.4em;
 }
 
 .contact_link {
   text-decoration: none;
-  padding: 10px 20px;
+  padding: 0.6em 1.25em;
   border-radius: 5px;
-  color: var(--first-color-lighten);
+  color: var(--body-color);
   border: 1px solid var(--second-color);
-  background-color: var(--body-color);
+  background-color: var(--second-color);
 }
 
 .contact_link:hover {
-  color: var(--body-color);
-  background-color: var(--second-color);
+  color: var(--second-color);
+  background-color: var(--body-color);
 }
 
 :global(.active) {

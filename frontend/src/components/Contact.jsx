@@ -1,38 +1,57 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import axios from "axios";
-import { getNames } from "country-list";
-// import Select from "react-select";
+import { Country, State } from "country-state-city";
 // import { FaPhoneAlt } from "react-icons/fa";
 import { IoMailOpenSharp } from "react-icons/io5";
 // import { FaLocationDot } from "react-icons/fa6";
 import BACKEND_URL from "../../service/helper";
 import styles from "./Contact.module.css";
 
-const countries = getNames();
-countries.sort((a, b) => a.localeCompare(b));
+let countries = Country.getAllCountries();
 
-// const options = countries.map((country) => {
-//   return { label: country, value: country };
-// });
+const sortedCountries = countries.sort((a, b) => a.name.localeCompare(b.name));
 
 const Contact = () => {
-  const { register, formState, handleSubmit, reset } = useForm();
+  const { register, formState, getValues, watch, handleSubmit, reset } =
+    useForm();
   const { errors } = formState;
+  const selectedCountry = watch("country") || "";
+
+  const states = State.getStatesOfCountry(selectedCountry);
 
   const [isLoading, setIsLoading] = useState(false);
+  const [isTokenPresent, setIsTokenPresent] = useState(false);
 
-  const onSubmit = async (data) => {
+  useEffect(() => {
+    const details = JSON.parse(localStorage.getItem("details"));
+    if (!details) return;
+    if (details.token) setIsTokenPresent(true);
+  }, []);
+
+  const onSubmit = async (contactData) => {
+    const details = JSON.parse(localStorage.getItem("details"));
+
+    if (!details) {
+      toast.error("token is not present");
+      return;
+    }
+
+    const headers = {
+      Authorization: `Bearer ${details.token}`,
+    };
+
     try {
       setIsLoading(true);
       const {
         data: { msg },
-      } = await axios.post(`${BACKEND_URL}/api/user/send-mail`, data);
+      } = await axios.post(`${BACKEND_URL}/api/public/send-mail`, contactData, {
+        headers,
+      });
       toast.success(msg);
-    } catch (err) {
-      console.log(err);
-      toast.error(err.message || "An error occurred");
+    } catch (e) {
+      toast.error(e.message || "An error occurred");
     } finally {
       reset();
       setIsLoading(false);
@@ -248,13 +267,37 @@ const Contact = () => {
                 })}
               >
                 <option value="">--select your country--</option>
-                {countries.map((country) => (
-                  <option key={country} value={country}>
-                    {country}
+                {sortedCountries.map((country) => (
+                  <option key={country.isoCode} value={country.isoCode}>
+                    {country.name}
                   </option>
                 ))}
               </select>
             </div>
+
+            {states.length > 0 && (
+              <div className={styles["form-group"]}>
+                <label htmlFor="state">State</label>
+                <select
+                  name="state"
+                  id="state"
+                  disabled={isLoading}
+                  className={`${styles.select} ${
+                    errors?.state?.message ? styles.error : ""
+                  } ${isLoading ? styles.notAllowed : ""}`}
+                  {...register("state", {
+                    required: "This field is required",
+                  })}
+                >
+                  <option value="">--select your state--</option>
+                  {states.map((state) => (
+                    <option key={state.isoCode} value={state.name}>
+                      {state.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
 
             <div className={`${styles.message} ${styles["form-group"]}`}>
               <label htmlFor="message">Message</label>

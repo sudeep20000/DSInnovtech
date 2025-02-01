@@ -1,7 +1,8 @@
 const { StatusCodes } = require("http-status-codes");
-const { BadRequestError } = require("../errors");
+const { countries } = require("countries-list");
 const nodemailer = require("nodemailer");
-const User = require("../models/user");
+const { BadRequestError } = require("../errors");
+const Contact_details = require("../models/contactDetails");
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -15,7 +16,9 @@ const transporter = nodemailer.createTransport({
   tls: { rejectUnauthorized: false },
 });
 
-const saveDetails = async (req, res) => {
+const saveContactDetails = async (req, res) => {
+  const userId = req.user.userId;
+
   const {
     firstName,
     lastName,
@@ -24,6 +27,7 @@ const saveDetails = async (req, res) => {
     email,
     phone,
     country,
+    state,
     message,
   } = req.body;
 
@@ -35,6 +39,7 @@ const saveDetails = async (req, res) => {
     !email ||
     !phone ||
     !country ||
+    !state ||
     !message
   ) {
     throw new BadRequestError("Please provide all cradentials");
@@ -60,7 +65,11 @@ const saveDetails = async (req, res) => {
     const [emailResult, userResult] = await Promise.all([
       transporter.sendMail(userReceivedMail),
       transporter.sendMail(companyReceivedMail),
-      User.create({ ...req.body }),
+      Contact_details.create({
+        ...req.body,
+        contactedBy: userId,
+        country: countries[req.body.country].name,
+      }),
     ]);
 
     res
@@ -73,4 +82,4 @@ const saveDetails = async (req, res) => {
   }
 };
 
-module.exports = { saveDetails };
+module.exports = { saveContactDetails };

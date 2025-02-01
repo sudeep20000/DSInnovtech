@@ -1,0 +1,32 @@
+.app {
+  min-height: 100dvh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.main_container {
+  margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Mobile (default): 0px – 767px */
+/* Tablet: 768px – 1023px */
+@media (min-width: 768px) {
+  /* Tablet styles */
+}
+
+/* Laptop/Desktop: 1024px – 1279px */
+@media (min-width: 1024px) {
+  /* Desktop styles */
+}
+
+/* Large Desktop: 1280px+ */
+@media (min-width: 1280px) {
+  /* Large screen styles */
+}

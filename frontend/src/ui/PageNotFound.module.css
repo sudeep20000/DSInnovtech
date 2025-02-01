@@ -1,0 +1,26 @@
+.empty_box {
+  width: 92vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.empty_msg {
+  font-size: 2rem;
+}
+
+.back_btn {
+  font-size: 1.25rem;
+  padding: 0.5em 1.75em;
+  background-color: var(--second-color);
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+}
+
+.back_btn:hover {
+  background-color: rgb(224, 188, 24);
+}
