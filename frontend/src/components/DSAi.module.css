@@ -1,7 +1,6 @@
 .hero_sec {
   width: 92vw;
   margin: 0 auto;
-  /* margin-bottom: 1.5rem; */
 }
 
 .details {
@@ -27,6 +26,7 @@
   flex-direction: column;
   color: var(--first-color-lighten);
   text-align: center;
+  align-self: flex-start;
 }
 
 .intro_content p {
@@ -46,8 +46,10 @@
 }
 
 .description {
-  text-align: center;
+  font-size: 1.6rem;
   margin-top: 1.5em;
+  font-weight: normal;
+  text-align: left;
 }
 
 .img_container {
