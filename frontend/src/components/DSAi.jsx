@@ -14,8 +14,14 @@ const DASi = () => {
             <p className={styles.title}>
               <span className={styles.coloredPart}>DS</span>Ai
             </p>
-            <p className={styles.about}>
+            <p className={styles.sub_title}>
               AI/Machine Learning Application Development
+            </p>
+            <p className={styles.description}>
+              Utilizes AI-algorithms including deep learning neural networks and
+              foundation models unstructured database, vector search and
+              retrievals and digitization, automation, and customization
+              techniques.
             </p>
           </div>
 

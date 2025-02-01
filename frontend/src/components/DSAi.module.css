@@ -37,12 +37,17 @@
   font-size: 5rem;
 }
 
-.about {
-  font-size: 3rem;
+.sub_title {
+  font-size: 2.25rem;
 }
 
 .coloredPart {
   color: var(--second-color);
+}
+
+.description {
+  text-align: center;
+  margin-top: 1.5em;
 }
 
 .img_container {

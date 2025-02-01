@@ -14,9 +14,7 @@ const projects = [
     to: "/technology/DSAi",
     image: "./project_2.jpg",
     title: "DSAi",
-    description: `An AI-Powered predictive analysis and generative design software for solving and developing applications in a wide  range of challenging and complex problems to enhance efficiency and productivity in the workflow and accelerates the design and development cycles.
-.
-`,
+    description: `An AI-Powered predictive analysis and generative design software for solving and developing applications in a wide  range of challenging and complex problems to enhance efficiency and productivity in the workflow and accelerates the design and development cycles.`,
   },
   // {
   //   to: "/technology/Multiphysics-and-Advanced-computing",
