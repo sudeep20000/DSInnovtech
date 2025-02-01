@@ -23,8 +23,8 @@ app.get("/", (_, res) => {
   });
 });
 
-app.use("/api/public", authMiddleware, publicRouters);
 app.use("/api/auth", authRouters);
+app.use("/api/public", publicRouters);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);

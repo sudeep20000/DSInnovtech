@@ -17,7 +17,7 @@ const transporter = nodemailer.createTransport({
 });
 
 const saveContactDetails = async (req, res) => {
-  const userId = req.user.userId;
+  // const userId = req.user.userId;
 
   const {
     firstName,
@@ -67,10 +67,11 @@ const saveContactDetails = async (req, res) => {
       transporter.sendMail(companyReceivedMail),
       Contact_details.create({
         ...req.body,
-        contactedBy: userId,
         country: countries[req.body.country].name,
       }),
     ]);
+
+    // contactedBy: userId,
 
     res
       .status(StatusCodes.OK)

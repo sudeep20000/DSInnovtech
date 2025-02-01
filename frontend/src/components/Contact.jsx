@@ -31,24 +31,22 @@ const Contact = () => {
   }, []);
 
   const onSubmit = async (contactData) => {
-    const details = JSON.parse(localStorage.getItem("details"));
+    // const details = JSON.parse(localStorage.getItem("details"));
 
-    if (!details) {
-      toast.error("token is not present");
-      return;
-    }
+    // if (!details) {
+    //   toast.error("token is not present");
+    //   return;
+    // }
 
-    const headers = {
-      Authorization: `Bearer ${details.token}`,
-    };
+    // const headers = {
+    //   Authorization: `Bearer ${details.token}`,
+    // };
 
     try {
       setIsLoading(true);
       const {
         data: { msg },
-      } = await axios.post(`${BACKEND_URL}/api/public/send-mail`, contactData, {
-        headers,
-      });
+      } = await axios.post(`${BACKEND_URL}/api/public/send-mail`, contactData);
       toast.success(msg);
     } catch (e) {
       toast.error(e.message || "An error occurred");
