@@ -26,8 +26,8 @@ const DASi = () => {
           </div>
 
           <div className={styles.img_container}>
-            <img src="/project_2.jpg" alt="project_2" />
-            <img src="/aiml_img2.png" alt="aiml_2" />
+            <img src="/project_2.jpg" alt="project_2" loading="lazy" />
+            <img src="/aiml_img2.png" alt="aiml_2" loading="lazy" />
           </div>
         </div>
       </section>

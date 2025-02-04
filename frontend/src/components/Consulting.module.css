@@ -17,6 +17,7 @@
 
 .list li {
   list-style: disc;
+  margin-left: 1.8rem;
 }
 
 .coloredPart {

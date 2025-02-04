@@ -55,6 +55,7 @@ const Beasi = () => {
             </li>
           </ul>
         </li>
+
         <li className={styles.container}>
           <h2 className={styles["card-title"]}>Solution</h2>
           <ul className={`${styles.grid} ${styles.block}`}>
@@ -76,6 +77,7 @@ const Beasi = () => {
             </li>
           </ul>
         </li>
+
         <li className={styles.container}>
           <h2 className={styles["card-title"]}>
             Improved Productivity and Efficiency

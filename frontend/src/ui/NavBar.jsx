@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import toast from "react-hot-toast";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { MdOutlineCancel } from "react-icons/md";
 import Logo from "../components/Logo";
 import DropdownMenu from "../components/DropdownMenu";
 import styles from "./NavBar.module.css";
@@ -24,15 +26,16 @@ const menuItems = {
     { to: "/project-a", label: "Project A" },
     { to: "/project-b", label: "Project B" },
   ],
-  resources: [
-    // { to: "/blog", label: "Blog" },
-    // { to: "/ebooks", label: "eBooks" },
-  ],
+  // resources: [
+  //   { to: "/blog", label: "Blog" },
+  //   { to: "/ebooks", label: "eBooks" },
+  // ],
 };
 
 const PageNav = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isTokenPresent, setIsTokenPresent] = useState(false);
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   const navigate = useNavigate();
 
@@ -41,14 +44,6 @@ const PageNav = () => {
     if (!details) return;
     if (details.token) setIsTokenPresent(true);
   }, []);
-
-  const handleMouseEnter = (menu) => {
-    setActiveDropdown(menu);
-  };
-
-  const handleMouseLeave = () => {
-    setActiveDropdown(null);
-  };
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -68,30 +63,30 @@ const PageNav = () => {
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
-        <div className={styles.nav__logo_container}>
-          <Link to="/" className={styles.nav__logo}>
+        <div className={styles.logo_container}>
+          <Link to="/" className={styles.logo}>
             <Logo />
-            <div>DSinnovtech</div>
+            <span className={styles.company_name}>DSinnovtech</span>
           </Link>
         </div>
 
-        <ul className={styles.nav__list}>
+        <ul className={styles.nav_list}>
           {Object.keys(menuItems).map((key) => (
             <li
-              onMouseEnter={() => handleMouseEnter(key)}
-              onMouseLeave={handleMouseLeave}
+              onMouseEnter={() => setActiveDropdown(key)}
+              onMouseLeave={() => setActiveDropdown(null)}
               className={styles.list}
               key={key}
             >
               {menuItems[key].length === 0 ? (
                 <>
-                  <NavLink to={key} className={styles.nav__link}>
+                  <NavLink to={key} className={styles.nav_link}>
                     {key.charAt(0).toUpperCase() + key.slice(1)}
                   </NavLink>
                 </>
               ) : (
                 <>
-                  <div className={styles.nav__div}>
+                  <div className={styles.nav_div}>
                     <span>{key.charAt(0).toUpperCase() + key.slice(1)}</span>
                     <div
                       className={`${styles["dropdown-arrow"]} ${
@@ -109,6 +104,25 @@ const PageNav = () => {
             </li>
           ))}
         </ul>
+
+        <div className={styles.icons}>
+          {!isOpenMenu && (
+            <div
+              className={styles.hamburger_icon}
+              onClick={() => setIsOpenMenu(true)}
+            >
+              <RxHamburgerMenu size={40} />
+            </div>
+          )}
+          {isOpenMenu && (
+            <div
+              className={styles.cancel_icon}
+              onClick={() => setIsOpenMenu(false)}
+            >
+              <MdOutlineCancel size={40} />
+            </div>
+          )}
+        </div>
 
         <div className={styles.btn_container}>
           {!isTokenPresent && (

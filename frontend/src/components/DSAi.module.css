@@ -62,7 +62,7 @@
 }
 
 .img_container img {
-  width: 72%;
+  width: 70%;
   border-radius: 10px;
 }
 
@@ -91,10 +91,11 @@
 .point_content {
   margin-bottom: 1.25rem;
   list-style: disc;
+  margin-left: 1.8rem;
 }
 
 .solution_sec_image {
-  width: 55%;
+  width: 50%;
   align-self: flex-start;
 }
 
@@ -302,9 +303,13 @@
   }
 }
 
-.block {
+/* .block {
   margin-bottom: 4rem;
   animation: appear linear;
   animation-timeline: view();
   animation-range: entry 0% cover 40%;
+} */
+
+.block:not(:last-of-type) {
+  margin-bottom: 100px;
 }
