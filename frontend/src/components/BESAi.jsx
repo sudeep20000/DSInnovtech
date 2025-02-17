@@ -9,7 +9,7 @@ const Beasi = () => {
           <p>
             <span className={styles.coloredPart}>BES</span>Ai
           </p>
-          <img src="/BESAI_1.jpg" alt="besai" />
+          <img src="/BESAI_1.jpg" alt="besai" loading="lazy" />
         </div>
         <div className={styles.about_container}>
           <p>
@@ -19,7 +19,7 @@ const Beasi = () => {
             battery packs for EVs and stationary storage. BESAi empowers
             designers with the next generation of product development tools
             based on Multiphysics and AI-machine learning/data science methods
-            for faster design of optimal pack configurations
+            for faster design of optimal pack configurations.
           </p>
           {/* <p>
             DSinnovtech collaborates with electric vehicle, renewable energy,

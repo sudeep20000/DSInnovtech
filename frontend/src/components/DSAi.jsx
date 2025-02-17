@@ -53,54 +53,57 @@ const DASi = () => {
       </section>
 
       <section className={`${styles.prediction} ${styles.block}`}>
-        <div className={styles.left_section}>
-          <p className={styles.section_title}>
-            <span className={styles.coloredPart}>AI-ML </span>
-            Model for Predictive Analysis
-          </p>
-          <div className={styles.description}>
-            <p className={styles.des_content}>
-              In an AI-Machine learning model, a detection algorithm, referred
-              as the <em>Trained ML Algorithm</em> is used to watch for the
-              pattern in the incoming data and detects the targeted set or the
-              <strong> anomalies</strong>.
-            </p>
-            <img src="/aiml_img4.png" alt="aiml_img4" />
-          </div>
-        </div>
+        <p className={styles.section_title}>
+          <span className={styles.coloredPart}>AI-ML </span>
+          Model for Predictive Analysis
+        </p>
 
-        <div className={styles.right_section}>
-          <ul className={styles.unordered_list}>
-            <li className={styles.list_item}>
-              Uses Machine Learning analysis techniques to extract patterns,
-              identify features and understand the concepts from large volume of
-              data :
-              <ul className={styles.inner_unordered_list}>
-                <li className={styles.inner_list_item}>
-                  Data includes both historical and new data streamed.
-                </li>
-                <li className={styles.inner_list_item}>
-                  Data generated using high-fidelity Simulation model.
-                </li>
-                <li className={styles.inner_list_item}>
-                  Can detect patterns and learn to make predictions &
-                  recommendations.
-                </li>
-              </ul>
-            </li>
-            <li className={styles.list_item}>
-              Capable of self-correction and improve predictions through
-              iterations or <em>epochs</em> :
-              <ul className={styles.inner_unordered_list}>
-                <li className={styles.inner_list_item}>
-                  using new set of data and experiences, over periods.
-                </li>
-                <li className={styles.inner_list_item}>
-                  Referred to as the <em>learning process</em>.
-                </li>
-              </ul>
-            </li>
-          </ul>
+        <div className={styles.prediction_content}>
+          <div className={styles.left_section}>
+            <div className={styles.prediction_description}>
+              <p className={styles.des_content}>
+                In an AI-Machine learning model, a detection algorithm, referred
+                as the <em>Trained ML Algorithm</em> is used to watch for the
+                pattern in the incoming data and detects the targeted set or the
+                <strong> anomalies</strong>.
+              </p>
+              <img src="/aiml_img4.png" alt="aiml_img4" loading="lazy" />
+            </div>
+          </div>
+
+          <div className={styles.right_section}>
+            <ul className={styles.unordered_list}>
+              <li className={styles.list_item}>
+                Uses Machine Learning analysis techniques to extract patterns,
+                identify features and understand the concepts from large volume
+                of data :
+                <ul className={styles.inner_unordered_list}>
+                  <li className={styles.inner_list_item}>
+                    Data includes both historical and new data streamed.
+                  </li>
+                  <li className={styles.inner_list_item}>
+                    Data generated using high-fidelity Simulation model.
+                  </li>
+                  <li className={styles.inner_list_item}>
+                    Can detect patterns and learn to make predictions &
+                    recommendations.
+                  </li>
+                </ul>
+              </li>
+              <li className={styles.list_item}>
+                Capable of self-correction and improve predictions through
+                iterations or <em>epochs</em> :
+                <ul className={styles.inner_unordered_list}>
+                  <li className={styles.inner_list_item}>
+                    using new set of data and experiences, over periods.
+                  </li>
+                  <li className={styles.inner_list_item}>
+                    Referred to as the <em>learning process</em>.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -141,7 +144,7 @@ const DASi = () => {
         </div>
 
         <div className={styles.development_right_section}>
-          <img src="/aiml_img5.png" alt="aiml_img5" />
+          <img src="/aiml_img5.png" alt="aiml_img5" loading="lazy" />
         </div>
       </section>
 
@@ -204,6 +207,7 @@ const DASi = () => {
               </div>
             </div>
           </div>
+
           <div className={styles.second}>
             <img src="/aiml_img8.png" alt="aiml_img_7" loading="lazy" />
           </div>

@@ -1,11 +1,16 @@
 .hero_sec {
   width: 92vw;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.intro_sec {
 }
 
 .title {
   color: white;
-  font-size: 3.125rem;
+  font-size: 2.5rem;
   font-weight: bold;
 }
 
@@ -18,29 +23,64 @@
 }
 
 .intro_container p {
-  font-size: 1.55rem;
+  font-size: 1rem;
   color: var(--first-color-lighten);
 }
 
 .carousel_content {
   /* width: 100vw; */
-  height: 60dvh;
+  /* height: 60dvh; */
   margin: 0 auto;
   background-color: var(--body-color);
 }
 
 .carousel_content p {
-  /* text-align: center; */
+  margin: 0 auto;
+  text-align: left;
   width: 90%;
-  font-size: 3rem;
+  font-size: 1.5rem;
   padding: 0.5em;
 }
 
 .solutions {
   margin: 0 auto;
   display: flex;
-  /* align-items: center; */
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.titleSection {
+  align-self: flex-start;
+}
+
+.titleSection_title {
+  color: var(--second-color);
+  font-size: 1.75rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+.contentSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.solution_sec_list {
+  font-size: 1.25rem;
+}
+
+.imageContainer {
+  width: 100%;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.solution_sec_image {
+  width: 100%;
+  height: auto;
 }
 
 .solution_sec_list {
@@ -49,7 +89,7 @@
 }
 
 .solution_sec_list p {
-  font-size: 2.2rem;
+  font-size: 1.75rem;
   color: var(--first-color-lighten);
   margin-bottom: 0.5em;
   font-weight: bold;
@@ -57,9 +97,8 @@
 }
 
 .points {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: var(--first-color-lighten);
-  /* align-self: flex-start; */
 }
 
 .points li {
@@ -70,12 +109,6 @@
 
 .points li:hover {
   color: var(--second-color);
-}
-
-.solution_sec_image {
-  max-width: 50%;
-  height: auto;
-  align-self: flex-start;
 }
 
 .project_link {
@@ -107,10 +140,79 @@
   animation-range: entry 0% cover 40%;
 } */
 
-section {
+/* section {
   height: 100vh;
-}
+} */
 
 section:not(:last-of-type) {
   margin-bottom: 100px;
+}
+
+/* Tablet: 768px – 1023px */
+@media (min-width: 768px) {
+  .intro_container p {
+    font-size: 1.55rem;
+  }
+
+  .title {
+    font-size: 3.125rem;
+  }
+
+  .carousel_content p {
+    font-size: 3rem;
+  }
+
+  .solution_sec_list p {
+    font-size: 2.2rem;
+  }
+
+  .points {
+    font-size: 2rem;
+  }
+
+  .solution_sec_image {
+    width: 50%;
+    height: auto;
+    /* align-self: flex-start; */
+  }
+
+  .titleSection_title {
+    color: var(--second-color);
+    font-size: 2.5rem;
+    margin: 0;
+  }
+
+  .contentSection {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .solution_sec_list {
+    font-size: 1.25rem;
+    /* width: 100%; */
+  }
+
+  .imageContainer {
+    margin: 0 auto;
+  }
+
+  .solution_sec_image {
+    width: 80%;
+    height: auto;
+  }
+}
+
+/* Laptop/Desktop: 1024px – 1279px */
+@media (min-width: 1024px) {
+  /* :global(.carousel) {
+    font-size: 2.5rem;
+  } */
+}
+
+/* Large Desktop: 1280px+ */
+@media (min-width: 1280px) {
+  /* :global(.carousel) {
+    font-size: 3rem;
+  } */
 }

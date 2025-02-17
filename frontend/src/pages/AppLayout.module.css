@@ -3,14 +3,11 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   gap: 4.125rem;
 }
 
 .main_container {
-  margin-top: 6rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex: 1;
+  padding-top: 6rem;
+  width: 100%;
 }

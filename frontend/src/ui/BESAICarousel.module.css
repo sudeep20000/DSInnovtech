@@ -1,20 +1,20 @@
-.main_div {
-  width: 100%;
-}
-
-.img {
-  height: 520px;
+.carouselContainer {
 }
 
 .img {
   display: block;
+  width: 100%;
+  height: auto;
   margin: 0 auto;
-  max-height: 100vh;
 }
 
-.carousel-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+:global(.carousel-control-prev-icon) {
+  color: black;
+}
+
+/* Tablet: 768px – 1023px */
+@media (min-width: 768px) {
+  .img {
+    width: 75%;
+  }
 }

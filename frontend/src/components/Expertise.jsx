@@ -4,7 +4,9 @@ import styles from "./Expertise.module.css";
 const Expertise = () => {
   return (
     <div className={styles.hero_sec}>
-      <h3 className={styles.heading}>Expertise</h3>
+      <h3 className={styles.heading}>
+        <span className={styles.coloredPart}>E</span>xpertise
+      </h3>
       <p className={styles.intro}>
         With the 30+ years of research experience & knowledge in Li-ion battery
         technology, advanced computations, AI-Machine Learning methods, data

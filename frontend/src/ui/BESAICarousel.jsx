@@ -13,10 +13,10 @@ const images = [
 
 const BESAICarousel = () => {
   return (
-    <section>
+    <section className={styles.carouselContainer}>
       <Carousel>
         {images.map((img, i) => (
-          <Carousel.Item key={i}>
+          <Carousel.Item key={img}>
             <img className={styles.img} src={img} alt={`slide-${i}`} />
           </Carousel.Item>
         ))}

@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { RiArrowDropDownLine } from "react-icons/ri";
 import toast from "react-hot-toast";
+import { RiArrowDropDownLine } from "react-icons/ri";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { MdOutlineCancel } from "react-icons/md";
-import Logo from "../components/Logo";
-import DropdownMenu from "../components/DropdownMenu";
 import styles from "./NavBar.module.css";
 
 const menuItems = {
@@ -33,9 +31,9 @@ const menuItems = {
 };
 
 const PageNav = () => {
-  const [activeDropdown, setActiveDropdown] = useState(null);
   const [isTokenPresent, setIsTokenPresent] = useState(false);
-  const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
   const navigate = useNavigate();
 
@@ -44,6 +42,10 @@ const PageNav = () => {
     if (!details) return;
     if (details.token) setIsTokenPresent(true);
   }, []);
+
+  const fixLabel = (key) => {
+    return key.charAt(0).toUpperCase() + key.slice(1);
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -60,71 +62,121 @@ const PageNav = () => {
     navigate("/auth");
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+    setActiveDropdown(null);
+  };
+
+  const handleDropdown = (key) => {
+    setActiveDropdown(activeDropdown === key ? null : key);
+  };
+
   return (
     <header className={styles.header}>
-      <nav className={styles.nav}>
-        <div className={styles.logo_container}>
-          <Link to="/" className={styles.logo}>
-            <Logo />
-            <span className={styles.company_name}>DSinnovtech</span>
-          </Link>
-        </div>
+      <nav className={styles.navbar} aria-label="Main navigation">
+        <div className={styles.container}>
+          <div
+            className={styles.logo_container}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <Link to="/" className={styles.logo_link}>
+              <img src="/logo.svg" alt="logo" className={styles.logo} />
+              <span className={styles.company_name}>DSinnovtech</span>
+            </Link>
+          </div>
 
-        <ul className={styles.nav_list}>
-          {Object.keys(menuItems).map((key) => (
-            <li
-              onMouseEnter={() => setActiveDropdown(key)}
-              onMouseLeave={() => setActiveDropdown(null)}
-              className={styles.list}
-              key={key}
-            >
-              {menuItems[key].length === 0 ? (
-                <>
-                  <NavLink to={key} className={styles.nav_link}>
-                    {key.charAt(0).toUpperCase() + key.slice(1)}
-                  </NavLink>
-                </>
-              ) : (
-                <>
-                  <div className={styles.nav_div}>
-                    <span>{key.charAt(0).toUpperCase() + key.slice(1)}</span>
-                    <div
-                      className={`${styles["dropdown-arrow"]} ${
-                        activeDropdown === key ? styles.open : styles.close
-                      }`}
-                    >
-                      <RiArrowDropDownLine size={30} />
-                    </div>
-                  </div>
-                  {activeDropdown === key && (
-                    <DropdownMenu items={menuItems[key]} />
+          <button
+            className={styles.ham_container}
+            onClick={toggleMenu}
+            aria-expanded={isMenuOpen}
+            aria-label="Toggle navigation menu"
+          >
+            {!isMenuOpen ? (
+              <span className={styles.hamburger_icon}>
+                <RxHamburgerMenu size={40} color="white" />
+              </span>
+            ) : (
+              <span className={styles.cancel_icon}>
+                <MdOutlineCancel size={40} color="white" />
+              </span>
+            )}
+          </button>
+
+          <div
+            className={`${styles.navList_Wrapper} ${
+              isMenuOpen ? styles.active : ""
+            }`}
+          >
+            <ul className={styles.nav_list}>
+              {Object.keys(menuItems).map((key) => (
+                <li
+                  className={styles.list}
+                  onMouseEnter={() => !isMenuOpen && setActiveDropdown(key)}
+                  onMouseLeave={() => !isMenuOpen && setActiveDropdown(null)}
+                  key={key}
+                >
+                  {menuItems[key].length === 0 ? (
+                    <>
+                      <NavLink to={key} className={styles.nav_link}>
+                        {key.charAt(0).toUpperCase() + key.slice(1)}
+                      </NavLink>
+                    </>
+                  ) : (
+                    <>
+                      <button
+                        className={styles.navButton}
+                        onClick={() => handleDropdown(key)}
+                        aria-expanded={activeDropdown === key}
+                        aria-haspopup="true"
+                      >
+                        <span>{fixLabel(key)}</span>
+                        <span
+                          className={`${styles["dropdown-arrow"]} ${
+                            activeDropdown === key ? styles.open : ""
+                          }`}
+                        >
+                          <RiArrowDropDownLine size={30} />
+                        </span>
+                      </button>
+
+                      <div
+                        className={`${styles.dropdownWrapper} ${
+                          activeDropdown === key ? styles.open : ""
+                        }`}
+                        role="region"
+                        aria-hidden={!activeDropdown === key}
+                      >
+                        <ul className={styles["dropdown-menu"]}>
+                          {menuItems[key].map((item, i) => (
+                            <li key={i}>
+                              <NavLink
+                                to={item.to}
+                                className={styles["dropdown-item"]}
+                                onClick={() => setIsMenuOpen(false)}
+                              >
+                                {item.label}
+                              </NavLink>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </>
                   )}
-                </>
-              )}
-            </li>
-          ))}
-        </ul>
+                </li>
+              ))}
+              <li className={`${styles.list} ${styles.contact}`}>
+                <Link
+                  to="contact"
+                  className={styles.contact_link}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Contact us
+                </Link>
+              </li>
+            </ul>
+          </div>
 
-        <div className={styles.icons}>
-          {!isOpenMenu && (
-            <div
-              className={styles.hamburger_icon}
-              onClick={() => setIsOpenMenu(true)}
-            >
-              <RxHamburgerMenu size={40} />
-            </div>
-          )}
-          {isOpenMenu && (
-            <div
-              className={styles.cancel_icon}
-              onClick={() => setIsOpenMenu(false)}
-            >
-              <MdOutlineCancel size={40} />
-            </div>
-          )}
-        </div>
-
-        <div className={styles.btn_container}>
+          {/* <div className={styles.btn_container}>
           {!isTokenPresent && (
             <button
               onClick={(e) => handleLogin(e)}
@@ -141,12 +193,7 @@ const PageNav = () => {
               Log out
             </button>
           )}
-        </div>
-
-        <div className={styles.contact}>
-          <Link to="contact" className={styles.contact_link}>
-            Contact us
-          </Link>
+        </div> */}
         </div>
       </nav>
     </header>
@@ -154,3 +201,9 @@ const PageNav = () => {
 };
 
 export default PageNav;
+
+{
+  /* {activeDropdown === key && (
+                      <DropdownMenu items={menuItems[key]} />
+                      )} */
+}

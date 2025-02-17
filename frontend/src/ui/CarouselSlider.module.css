@@ -1,5 +1,5 @@
 .card {
-  height: 70vh;
+  min-height: 500px;
   width: 25%;
   border-radius: 10px;
   background-color: rgb(32, 31, 31);
@@ -7,7 +7,6 @@
 
 .card img {
   width: 65%;
-  /* border-radius: 10px 10px 0 0; */
   margin: 0 auto;
 }
 

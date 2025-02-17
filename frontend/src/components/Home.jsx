@@ -31,7 +31,7 @@ const slideContent = [
 const Home = () => {
   return (
     <div className={styles.hero_sec}>
-      <section>
+      <section className={styles.intro_sec}>
         <p className={styles.title}>
           <span className={styles.coloredPart}>DS</span>
           innovtech
@@ -53,25 +53,32 @@ const Home = () => {
       </section>
 
       <section className={styles.solutions}>
-        <div className={`${styles.solution_sec_list} ${styles.block}`}>
-          <p>Our Solutions</p>
-          <ul className={styles.points}>
-            {listContents.map((obj, i) => (
-              <li key={i}>
-                <Link to={obj.to} className={styles.project_link}>
-                  {obj.content}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <div className={styles.titleSection}>
+          <p className={styles.titleSection_title}>Our Solutions</p>
         </div>
 
-        <img
-          src="./sec2.png"
-          alt="solution"
-          loading="lazy"
-          className={`${styles.solution_sec_image} ${styles.block}`}
-        />
+        <div className={styles.contentSection}>
+          <div className={`${styles.solution_sec_list} ${styles.block}`}>
+            <ul className={styles.points}>
+              {listContents.map((obj, i) => (
+                <li key={i}>
+                  <Link to={obj.to} className={styles.project_link}>
+                    {obj.content}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className={styles.imageContainer}>
+            <img
+              src="./sec2.png"
+              alt="solution"
+              loading="lazy"
+              className={`${styles.solution_sec_image} ${styles.block}`}
+            />
+          </div>
+        </div>
       </section>
 
       <CarouselSlide />

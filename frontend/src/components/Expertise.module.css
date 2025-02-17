@@ -4,15 +4,25 @@
 }
 
 .heading {
-  font-size: 2.2rem;
+  font-size: 1.7rem;
   font-weight: bold;
-  color: var(--second-color);
 }
 
 .intro {
-  font-size: 1.55rem;
+  font-size: 1rem;
 }
 
 .coloredPart {
   color: var(--second-color);
+}
+
+/* Tablet: 768px – 1023px */
+@media (min-width: 768px) {
+  .heading {
+    font-size: 2.2rem;
+  }
+
+  .intro {
+    font-size: 1.55rem;
+  }
 }
