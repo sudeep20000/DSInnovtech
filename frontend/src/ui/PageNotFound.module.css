@@ -1,19 +1,21 @@
 .empty_box {
   width: 92vw;
   height: 50vh;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 1rem;
 }
 
 .empty_msg {
-  font-size: 2rem;
+  font-size: 1rem;
+  text-align: center;
 }
 
 .back_btn {
-  font-size: 1.25rem;
+  font-size: 1rem;
   padding: 0.5em 1.75em;
   background-color: var(--second-color);
   border-radius: 10px;
@@ -23,4 +25,18 @@
 
 .back_btn:hover {
   background-color: rgb(224, 188, 24);
+}
+
+@media (min-width: 768px) {
+  .empty_box {
+    gap: 1.25rem;
+  }
+
+  .empty_msg {
+    font-size: 2rem;
+  }
+
+  .back_btn {
+    font-size: 1.25rem;
+  }
 }

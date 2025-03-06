@@ -21,11 +21,18 @@ const listContents = [
 ];
 
 const slideContent = [
-  `DSinnovtech empowers engineers and scientists with the next generation of product development tools based on AI-machine learning/generative design methods.`,
-
-  `Utilizes digitization, automation, and customization techniques to enhance efficiency and productivity in the development workflow and accelerates the design and development cycles.`,
-
-  `DSinnovtech’s core expertise includes battery technologies, multi-physics high-fidelity computations, AI-Machine Learning, Data sciences and Software developments.`,
+  {
+    image: "/carouselContent/slide1.png",
+    content: `DSinnovtech empowers engineers and scientists with the next generation of product development tools based on AI-machine learning/generative design methods.`,
+  },
+  {
+    image: "/carouselContent/slide2.png",
+    content: `Utilizes digitization, automation, and customization techniques to enhance efficiency and productivity in the development workflow and accelerates the design and development cycles.`,
+  },
+  {
+    image: "/carouselContent/slide3.png",
+    content: `DSinnovtech’s core expertise includes battery technologies, multi-physics high-fidelity computations, AI-Machine Learning, Data sciences and Software developments.`,
+  },
 ];
 
 const Home = () => {
@@ -40,11 +47,12 @@ const Home = () => {
           <p>
             Providing Solutions with AI-Based Software and Advanced Computing.
           </p>
-          <Carousel>
-            {slideContent.map((content, i) => (
-              <Carousel.Item key={i}>
+
+          <Carousel touch={true}>
+            {slideContent.map((obj) => (
+              <Carousel.Item key={obj.content}>
                 <div className={styles.carousel_content}>
-                  <p>{content}</p>
+                  <p>{obj.content}</p>
                 </div>
               </Carousel.Item>
             ))}
@@ -72,10 +80,10 @@ const Home = () => {
 
           <div className={styles.imageContainer}>
             <img
+              className={`${styles.solution_sec_image} ${styles.block}`}
               src="./sec2.png"
               alt="solution"
               loading="lazy"
-              className={`${styles.solution_sec_image} ${styles.block}`}
             />
           </div>
         </div>
@@ -87,3 +95,26 @@ const Home = () => {
 };
 
 export default Home;
+
+{
+  /* <Carousel className={styles["custom-carousel"]} touch={true}>
+{slideContent.map((obj, i) => (
+  <Carousel.Item key={obj.content} className={styles.carousel_item}>
+    <div className={styles.image_wrapper}>
+      <img
+        className={styles.carousel_img}
+        src={obj.image}
+        alt={`carouselSlide-${i}`}
+        loading="lazy"
+      />
+    </div>
+
+    <Carousel.Caption className={styles.caption}>
+      <div className={styles.caption_text}>
+        <p>{obj.content}</p>
+      </div>
+    </Carousel.Caption>
+  </Carousel.Item>
+))}
+</Carousel> */
+}

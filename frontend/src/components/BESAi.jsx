@@ -1,7 +1,57 @@
+import Slider from "react-slick";
 import BESAICarousel from "../ui/BESAICarousel";
 import styles from "./BESAi.module.css";
 
+const images = [
+  `/carouselContent/img1.jpg`,
+  `/carouselContent/img2.png`,
+  `/carouselContent/img3.png`,
+  `/carouselContent/img4.png`,
+  `/carouselContent/img5.png`,
+  `/carouselContent/img6.png`,
+];
+
 const Beasi = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    pauseOnHover: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    speed: 1000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          dots: true,
+        },
+      },
+    ],
+  };
+
   return (
     <div className={styles.hero_sec}>
       <section className={styles.details}>
@@ -9,7 +59,16 @@ const Beasi = () => {
           <p>
             <span className={styles.coloredPart}>BES</span>Ai
           </p>
-          <img src="/BESAI_1.jpg" alt="besai" loading="lazy" />
+          {/* <img src="/BESAI_1.jpg" alt="besai" loading="lazy" /> */}
+          <section className={styles.carousel_container}>
+            <Slider {...settings}>
+              {images.map((img, i) => (
+                <div className={styles.img} key={i}>
+                  <img src={img} alt={`pic-${i + 1}`} loading="lazy" />
+                </div>
+              ))}
+            </Slider>
+          </section>
         </div>
         <div className={styles.about_container}>
           <p>

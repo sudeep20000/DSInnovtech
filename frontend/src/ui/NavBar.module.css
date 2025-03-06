@@ -83,7 +83,7 @@
   font-weight: var(--font-semi-bold);
   padding: 0.6rem 1rem;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   transition: background-color 0.3s;
 }
@@ -218,7 +218,7 @@
 }
 
 /* Tablet: 768px – 1023px */
-@media (min-width: 1200px) {
+@media (min-width: 1250px) {
   .header {
     margin-bottom: 0;
   }
@@ -239,7 +239,11 @@
   .nav_list {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.2rem;
+  }
+
+  .nav_link {
+    justify-content: center;
   }
 
   .navButton {

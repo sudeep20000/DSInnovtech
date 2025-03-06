@@ -7,6 +7,7 @@ import { MdOutlineCancel } from "react-icons/md";
 import styles from "./NavBar.module.css";
 
 const menuItems = {
+  home: [],
   "about us": [
     { to: "/about-us/context", label: "Context" },
     { to: "/about-us/expertise", label: "Expertise" },
@@ -24,10 +25,6 @@ const menuItems = {
     { to: "/project-a", label: "Project A" },
     { to: "/project-b", label: "Project B" },
   ],
-  // resources: [
-  //   { to: "/blog", label: "Blog" },
-  //   { to: "/ebooks", label: "eBooks" },
-  // ],
 };
 
 const PageNav = () => {
@@ -79,7 +76,10 @@ const PageNav = () => {
             className={styles.logo_container}
             onClick={() => setIsMenuOpen(false)}
           >
-            <Link to="/" className={styles.logo_link}>
+            <Link
+              to="https://www.dsinnovtech.com/"
+              className={styles.logo_link}
+            >
               <img src="/logo.svg" alt="logo" className={styles.logo} />
               <span className={styles.company_name}>DSinnovtech</span>
             </Link>
@@ -117,7 +117,11 @@ const PageNav = () => {
                 >
                   {menuItems[key].length === 0 ? (
                     <>
-                      <NavLink to={key} className={styles.nav_link}>
+                      <NavLink
+                        to="/"
+                        className={styles.nav_link}
+                        onClick={() => setIsMenuOpen(false)}
+                      >
                         {key.charAt(0).toUpperCase() + key.slice(1)}
                       </NavLink>
                     </>

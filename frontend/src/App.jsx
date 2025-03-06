@@ -44,7 +44,7 @@ const App = () => {
           </Routes>
         </Suspense>
       </BrowserRouter>
-      {/* <Toaster
+      <Toaster
         position="top-center"
         gutter={12}
         containerStyle={{ margin: "8px" }}
@@ -59,7 +59,7 @@ const App = () => {
             color: "lightGrey",
           },
         }}
-      /> */}
+      />
     </>
   );
 };
